@@ -10,4 +10,10 @@ public class EventManager {
     public void HandleStartGame() {
         OnStartGame?.Invoke();
     }
+    
+    public Action OnMainMenu = new Action(() => {});
+
+    public void HandleMainMenu() {
+        OnMainMenu?.Invoke();
+    }
 }
