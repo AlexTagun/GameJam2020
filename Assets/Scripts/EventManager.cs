@@ -16,4 +16,16 @@ public class EventManager {
     public void HandleMainMenu() {
         OnMainMenu?.Invoke();
     }
+
+    public Action<float> OnGlobalTemperatureChanged;
+
+    public void HandleGlobalTemperatureChanged(float value){
+        OnGlobalTemperatureChanged?.Invoke(value);
+    }
+
+    public Action<float> OnPlayerTemperatureChanged;
+    
+    public void HandlePlayerTemperatureChanged(float value){
+        OnPlayerTemperatureChanged?.Invoke(value);
+    }
 }
