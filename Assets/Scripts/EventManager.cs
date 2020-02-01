@@ -55,4 +55,10 @@ public class EventManager {
     public void HandleItemPut(){
         OnItemPut?.Invoke();
     }
+
+    public Action<string> OnTextPopupShown;
+
+    public void HandleTextPopupShown(string text){
+        OnTextPopupShown?.Invoke(text);
+    }
 }

@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Transform _visual;
     [SerializeField] private Animator playerAnimator;
 
+    [SerializeField] private Transform PointForDialogPopup;
+    public Transform GetPointForDialogPopup => PointForDialogPopup;
+
     private int lastMoveKeyUp = 2;
 
     public bool _isGrounded = true;
