@@ -5,7 +5,8 @@ using UnityEngine;
 using Zenject;
 
 public class GameManager : MonoBehaviour {
-    [SerializeField] private GamePlay _gamePlay;
+    [SerializeField] private UIGameController _uiGameController;
+    [SerializeField] private GameObject _gameplayGO;
     [SerializeField] private UIMainMenu _mainMenu;
 
     [Inject] private EventManager _eventManager;
@@ -20,12 +21,12 @@ public class GameManager : MonoBehaviour {
 
     private void StartGame() {
         _mainMenu.Hide();
-        _gamePlay.Show();
+        _gameplayGO.SetActive(true);
     }
 
     public void ToMainMenu() {
         _mainMenu.Show();
-        _gamePlay.Hide();
+        _uiGameController.Hide(() => { _gameplayGO.SetActive(false); });
     }
 
     private void Update(){

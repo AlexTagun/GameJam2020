@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -21,5 +22,18 @@ public class UIGameController : MonoBehaviour {
 
     private void OnPlayerTemperatureChanged(float value) {
         TemperatureProgressBar.SetValue(value, _temperatureManager.MAX_PLAYER_TEMPERATURE);
+    }
+
+    public void Show() {
+        
+    }
+
+    public void Hide() {
+        Hide(null);
+    }
+
+    public void Hide(Action callback) {
+        //TODO: wait for second
+        callback?.Invoke();
     }
 }
