@@ -27,7 +27,7 @@ public class EventManager {
     public Action OnDefeat;
 
     public void HandleDefeat() {
-        Debug.Log("Lose Game");
+        //Debug.Log("Lose Game");
         gameState = GameState.Defeat;
         OnDefeat?.Invoke();
     }
