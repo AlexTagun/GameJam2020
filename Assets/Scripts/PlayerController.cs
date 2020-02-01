@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
 
+    private float _speedModifier = 1f;
+
 
     void Start() {
         _startVisualY = _visual.localPosition.y;
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
 
     void Update() {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * speedX, Input.GetAxisRaw("Vertical") * speedY);
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * (speedX * _speedModifier), Input.GetAxisRaw("Vertical") * (speedY * _speedModifier));
         moveVelocity = moveInput;
         Debug.Log(_isGrounded);
         if(!_isGrounded) return;
@@ -94,5 +96,13 @@ public class PlayerController : MonoBehaviour {
                 _isGrounded = true;
             });
         });
+    }
+
+    public void SetSpeedModifier(float value){
+        _speedModifier = value;
+    }
+
+    public void ClearSpeedModifier(){
+        _speedModifier = 1f;
     }
 }
