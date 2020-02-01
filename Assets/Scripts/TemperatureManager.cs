@@ -38,7 +38,7 @@ public class TemperatureManager
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
 
         if (_currentPlayerTemperature <= 0f){
-            _eventManager.HandleLoseGame();
+            _eventManager.HandleDefeat();
         }
     }
 
