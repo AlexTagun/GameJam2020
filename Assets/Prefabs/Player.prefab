@@ -259,7 +259,11 @@ MonoBehaviour:
   _jumpHeight: 1
   _jumpTime: 1
   _visual: {fileID: 345492664194078092}
-  playerAnimator: {fileID: 1254907336128589982}
+  playerWithoutBagAnimator: {fileID: 9100000, guid: 2570f0e5ce3816e42bcb3099a8d771bc,
+    type: 2}
+  playerWithBagAnimator: {fileID: 9100000, guid: 29e53a70a178d6b4e8d4ded290d3e488,
+    type: 2}
+  curAnimator: {fileID: 1254907336128589982}
   PointForDialogPopup: {fileID: 1897299196145518616}
   PointForItemCollectorHelp: {fileID: 9210975059582566936}
   _isGrounded: 1
