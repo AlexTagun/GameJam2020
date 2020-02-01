@@ -5,6 +5,7 @@ using UnityEngine;
 using Zenject;
 
 public class GameManager : MonoBehaviour {
+    [SerializeField] private bool DebugMode = false;
     [SerializeField] private UIGameController _uiGameController;
     [SerializeField] private GameObject _gameplayGO;
     [SerializeField] private UIMainMenu _mainMenu;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         _eventManager.OnStartGame += StartGame;
         _eventManager.OnMainMenu += ToMainMenu;
-        _eventManager.OnDefeat += ToMainMenu;
+        if(!DebugMode) _eventManager.OnDefeat += ToMainMenu;
         
         _temperatureManager.Init();
     }
