@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Transform _visual;
     [SerializeField] private Animator playerAnimator;
 
+    private int lastMoveKeyUp = 2;
+
     public bool _isGrounded = true;
     private float _startVisualY;
 
@@ -29,6 +31,18 @@ public class PlayerController : MonoBehaviour {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * (speedX * _speedModifier), Input.GetAxisRaw("Vertical") * (speedY * _speedModifier));
         moveVelocity = moveInput;
         if(!_isGrounded) return;
+
+        LastKeyMoveUp();
+        if (!KeyMovePressed())
+        {
+            //Debug.Log(LastKeyMoveUp());
+            playerAnimator.SetInteger("Idle", LastKeyMoveUp());
+        }
+        else
+        {
+            playerAnimator.SetInteger("Idle", 0);
+        }
+
 
         Vector2 vectorAxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         playerAnimator.SetFloat("Horizontal", vectorAxis.x);
@@ -58,5 +72,34 @@ public class PlayerController : MonoBehaviour {
 
     public void ClearSpeedModifier(){
         _speedModifier = 1f;
+    }
+
+    bool KeyMovePressed ()
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+        {
+            return true;
+        }
+        return false;
+    }
+    int LastKeyMoveUp ()
+    {
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            lastMoveKeyUp = 1;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            lastMoveKeyUp = 2;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            lastMoveKeyUp = 3;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            lastMoveKeyUp = 4;
+        }
+        return lastMoveKeyUp;
     }
 }
