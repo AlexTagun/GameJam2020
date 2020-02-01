@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform PointForDialogPopup;
     public Transform GetPointForDialogPopup => PointForDialogPopup;
-    
+
     [SerializeField] private Transform PointForItemCollectorHelp;
     public Transform GetPointForItemCollectorHelp => PointForItemCollectorHelp;
 
     private int lastMoveKeyUp = 2;
 
     public bool _isGrounded = true;
+    public bool _isOnIce = false;
     private float _startVisualY;
 
     private Rigidbody2D rb;
@@ -34,8 +35,10 @@ public class PlayerController : MonoBehaviour {
 
 
     void Update() {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * (speedX * _speedModifier),
-            Input.GetAxisRaw("Vertical") * (speedY * _speedModifier));
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        moveInput.x *= speedX * _speedModifier;
+        moveInput.y *= speedY * _speedModifier;
+
         moveVelocity = moveInput;
         if (!_isGrounded) return;
 
@@ -57,7 +60,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+        if (_isOnIce) {
+            rb.AddForce(moveVelocity * 0.01f, ForceMode2D.Impulse);
+        } else {
+            rb.velocity = moveVelocity;
+        }
     }
 
     private void Jump() {
