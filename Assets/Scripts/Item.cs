@@ -17,5 +17,5 @@ public class Item : MonoBehaviour
 
 public enum TypeItem
 {
-    wood, rock, sand
+    wood, rock, sand, none
 };
