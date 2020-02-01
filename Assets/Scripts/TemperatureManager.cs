@@ -6,9 +6,10 @@ public class TemperatureManager
 
     public readonly float MAX_PLAYER_TEMPERATURE = 100f;
 
-    public readonly float PLAYER_TEMPERATURE_REMOVING_VALUE = 0.1f;
+    private readonly float REMOVING_PLAYER_TEMPERATURE_VALUE = 0.1f;
+    private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;
 
-    public readonly float START_GLOBAL_TEMPERATURE_VALUE = -1f;
+    private readonly float START_GLOBAL_TEMPERATURE_VALUE = -1f;
 
     private float _currentGlobalTemperature;
 
@@ -17,12 +18,8 @@ public class TemperatureManager
     private bool _isPlayerFreezing = true;
     public bool IsPlayerFreezing => _isPlayerFreezing;
 
-//    public void OnGlobalTemperatureChanged(float value){
-//        _currentGlobalTemperature += value;
-//    }
-
     public void Init(){
-        FillPlayerTemperature();
+        SetPlayerTemperature(MAX_PLAYER_TEMPERATURE);
         SetGlobalTemperature(START_GLOBAL_TEMPERATURE_VALUE);
     }
 
@@ -31,21 +28,29 @@ public class TemperatureManager
         _eventManager.HandleGlobalTemperatureChanged(_currentGlobalTemperature);
     }
     
-    public void RemovePlayerTemperature(float value){
-        _currentPlayerTemperature -= value;
+    private void SetPlayerTemperature(float value){
+        _currentPlayerTemperature = value;
+        _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
+    }
+    
+    public void RemovePlayerTemperature(){
+        _currentPlayerTemperature -= REMOVING_PLAYER_TEMPERATURE_VALUE;
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
     }
 
-    private void FillPlayerTemperature(){
-        _currentPlayerTemperature = MAX_PLAYER_TEMPERATURE;
+    public void AddPlayerTemperature(){
+        if (MAX_PLAYER_TEMPERATURE <= _currentPlayerTemperature){
+            _currentPlayerTemperature = MAX_PLAYER_TEMPERATURE;
+            return;
+        }
+        
+        _currentPlayerTemperature += ADDING_PLAYER_TEMPERATURE_VALUE;
+        
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
     }
 
     public void GoToTemperatureFiller(){
-        if (_isPlayerFreezing){
-            _isPlayerFreezing = false;
-            FillPlayerTemperature();
-        }
+        _isPlayerFreezing = false;
     }
 
     public void ExitFromTemperatureFiller(){

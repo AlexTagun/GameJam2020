@@ -30,7 +30,10 @@ public class GameManager : MonoBehaviour {
 
     private void Update(){
         if (_temperatureManager.IsPlayerFreezing){
-            _temperatureManager.RemovePlayerTemperature(_temperatureManager.PLAYER_TEMPERATURE_REMOVING_VALUE);
+            _temperatureManager.RemovePlayerTemperature();
+        }
+        else{
+            _temperatureManager.AddPlayerTemperature();
         }
     }
 }
