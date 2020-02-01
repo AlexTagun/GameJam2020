@@ -1,12 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WorldMarkersManagerUIObject : MonoBehaviour
 {
+    List<WorldMarkerBeaconComponent> _theBeacons = new List<WorldMarkerBeaconComponent>();
+    
+    private void Awake(){
+        _theBeacons = FindObjectsOfType<WorldMarkerBeaconComponent>().ToList();
+    }
+
+    public void ShowMarker(HintType hintType){
+        bool isShown = false;
+        
+        foreach (var theBeacon in _theBeacons){
+            bool theIsCreated;
+            WorldMarkerUIObject theWorldMarkerObject = theBeacon.getMarker(out theIsCreated);
+
+            if (theIsCreated){
+                theWorldMarkerObject.GetComponent<RectTransform>().SetParent(transform, false);
+            }
+            
+            if (isShown){
+                theWorldMarkerObject.gameObject.SetActive(false);
+            }
+            else{
+                if (theBeacon.getHintType == hintType){
+                    theWorldMarkerObject.gameObject.SetActive(true);
+                    isShown = true;
+                }
+                else{
+                    theWorldMarkerObject.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
     private void Update() {
-        WorldMarkerBeaconComponent[] theBeacons = FindObjectsOfType<WorldMarkerBeaconComponent>();
-        foreach (WorldMarkerBeaconComponent theBeacon in theBeacons) {
+        foreach (WorldMarkerBeaconComponent theBeacon in _theBeacons) {
                 bool theIsCreated;
                 WorldMarkerUIObject theWorldMarkerObject = theBeacon.getMarker(out theIsCreated);
                 RectTransform theMarkerRectTransform = theWorldMarkerObject.GetComponent<RectTransform>();
@@ -14,7 +46,9 @@ public class WorldMarkersManagerUIObject : MonoBehaviour
                     theMarkerRectTransform.SetParent(transform, false);
                 }
 
-                updateMarkerTransform(theWorldMarkerObject, theBeacon.transform.position);
+                if (theBeacon != null){
+                    updateMarkerTransform(theWorldMarkerObject, theBeacon.transform.position);
+                }
         }
     }
 

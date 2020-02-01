@@ -2,6 +2,9 @@
 
 public class WorldMarkerBeaconComponent : MonoBehaviour
 {
+    [SerializeField] private HintType HintType;
+    public HintType getHintType => HintType;
+    
     public WorldMarkerUIObject getMarker(out bool isJustCreated) {
         isJustCreated = false;
         if (null == _marker) {
@@ -10,10 +13,6 @@ public class WorldMarkerBeaconComponent : MonoBehaviour
         }
 
         return _marker;
-    }
-
-    private void OnDestroy(){
-        Destroy(_marker.gameObject);
     }
 
     //Fields
