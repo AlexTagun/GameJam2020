@@ -12,7 +12,7 @@ namespace UI
 
 
         public void UpdateView(float value){
-            Text.text = "-" + value;
+            Text.text = value.ToString();
         }
     }
 }
