@@ -312,7 +312,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedX: 10
   speedY: 5
+  _jumpHeight: 1
+  _jumpTime: 1
   rocket: {fileID: 0}
+  _visual: {fileID: 345492664194078092}
+  _isGrounded: 1
 --- !u!58 &345492664321538470
 CircleCollider2D:
   m_ObjectHideFlags: 0
