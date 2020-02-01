@@ -9,7 +9,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float speedY;
 
-    private GameObject pickedItem;
+    [SerializeField]
+    private Rocket rocket;
+
+    private bool isAbleToPickItem = false;
+    private Item itemNearPlayer;
+    private TypeItem typePickedItem;
+
+    private bool isAbleToPutItem = false;
 
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -23,12 +30,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal")*speedX, Input.GetAxisRaw("Vertical")*speedY);
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * speedX, Input.GetAxisRaw("Vertical") * speedY);
         moveVelocity = moveInput;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(pickedItem);
+            if (isAbleToPickItem)
+            {
+                typePickedItem = itemNearPlayer.typeItem;
+                itemNearPlayer.PickItem(itemNearPlayer);
+                isAbleToPickItem = false;
+            }
+
+            if (isAbleToPutItem)
+            {
+
+                rocket.PutItem(typePickedItem);
+                isAbleToPutItem = false;
+            }
+
         }
     }
 
@@ -41,8 +61,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Item")
         {
-            Debug.Log("нажмите Е");
-            pickedItem = collision.gameObject;
+            Debug.Log("нажмите Е, чтобы подобрать");
+            isAbleToPickItem = true;
+            itemNearPlayer = collision.gameObject.GetComponent<Item>();
+        }
+        if (collision.gameObject.tag == "Rocket")
+        {
+            Debug.Log("Нажмите E, чтобы сдать");
+            isAbleToPutItem = true;
         }
     }
 
@@ -51,8 +77,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             Debug.Log("Подойдите к объекту");
-            pickedItem = null;
+            isAbleToPickItem = false;
         }
+        if (collision.gameObject.tag == "Rocket")
+        {
+            Debug.Log("Подойдите к объекту");
+            isAbleToPutItem = false;
+        }
+
     }
 
 
