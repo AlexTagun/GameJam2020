@@ -69,4 +69,16 @@ public class EventManager {
     public void HandleTextPopupShown(string text){
         OnTextPopupShown?.Invoke(text);
     }
+
+    public Action OnTextItemCollectorHelpShown;
+
+    public void HandleTextItemCollectorHelpShown(){
+        OnTextItemCollectorHelpShown.Invoke();
+    }
+    
+    public Action OnTextItemCollectorHelpHidden;
+
+    public void HandleTextItemCollectorHelpHidden(){
+        OnTextItemCollectorHelpHidden.Invoke();
+    }
 }

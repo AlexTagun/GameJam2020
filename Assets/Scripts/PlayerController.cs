@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private Transform PointForDialogPopup;
     public Transform GetPointForDialogPopup => PointForDialogPopup;
+    
+    [SerializeField] private Transform PointForItemCollectorHelp;
+    public Transform GetPointForItemCollectorHelp => PointForItemCollectorHelp;
 
     private int lastMoveKeyUp = 2;
 

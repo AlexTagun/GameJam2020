@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private Rocket rocket;
+
+    [Inject] private EventManager _eventManager;
     
     private bool isAbleToPickItem = false;
     private Item itemNearPlayer;
@@ -17,6 +20,7 @@ public class ItemCollector : MonoBehaviour
             Debug.Log("нажмите Е, чтобы подобрать");
             isAbleToPickItem = true;
             itemNearPlayer = other.gameObject.GetComponent<Item>();
+            _eventManager.HandleTextItemCollectorHelpShown();
         }
         
         if (other.gameObject.tag == "Rocket") {
@@ -32,6 +36,7 @@ public class ItemCollector : MonoBehaviour
         if (other.gameObject.tag == "Item") {
             Debug.Log("Подойдите к объекту");
             isAbleToPickItem = false;
+            _eventManager.HandleTextItemCollectorHelpHidden();
         }
 
         /* if (other.gameObject.tag == "Rocket") {
@@ -47,6 +52,7 @@ public class ItemCollector : MonoBehaviour
                 itemNearPlayer.PickItem(itemNearPlayer);
                 isAbleToPickItem = false;
                 isAbleToPutItem = true;
+                _eventManager.HandleTextItemCollectorHelpHidden();
             }
 
            /* if (isAbleToPutItem) {
