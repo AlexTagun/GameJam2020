@@ -25,6 +25,14 @@ public class EventManager {
     }
 
     public Action OnDefeat;
+    public Action OnWin;
+
+    public void HandleWin()
+    {
+        gameState = GameState.Win;
+        Debug.Log("Win Game");
+        OnWin?.Invoke();
+    }
 
     public void HandleDefeat() {
         //Debug.Log("Lose Game");
