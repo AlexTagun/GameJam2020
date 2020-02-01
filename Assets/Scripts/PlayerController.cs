@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class PlayerController : MonoBehaviour {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpTime;
     [SerializeField] private float FREEZING_PLAYER_TIME = 1f;
-    [SerializeField] private Transform _visual;
+    [SerializeField] private Transform _jumpObject;
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
     [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
     [SerializeField] private Animator curAnimator;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     private float _speedModifier = 1f;
 
     void Start() {
-        _startVisualY = _visual.localPosition.y;
+        _startVisualY = _jumpObject.localPosition.y;
         rb = GetComponent<Rigidbody2D>();
         curAnimator.runtimeAnimatorController = playerWithoutBagAnimator;
         _eventManager.OnItemPicked += ChangeAnimator;
@@ -79,8 +80,8 @@ public class PlayerController : MonoBehaviour {
     private void Jump() {
         Debug.Log("Jump");
         _isGrounded = false;
-        _visual.DOLocalMoveY(_startVisualY + _jumpHeight, _jumpTime / 2).OnComplete(() => {
-            _visual.DOLocalMoveY(_startVisualY, _jumpTime / 2).OnComplete(() => {
+        _jumpObject.DOLocalMoveY(_startVisualY + _jumpHeight, _jumpTime / 2).OnComplete(() => {
+            _jumpObject.DOLocalMoveY(_startVisualY, _jumpTime / 2).OnComplete(() => {
                 _isGrounded = true;
             });
         });
@@ -142,7 +143,6 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(FREEZING_PLAYER_TIME);
         
         SetSpeedModifier(1f);
-        Debug.Log("asdfsadfsdf");
         // _isReloaded = true;
     }
 }
