@@ -43,4 +43,16 @@ public class EventManager {
     public void HandlePlayerTemperatureChanged(float value) {
         OnPlayerTemperatureChanged?.Invoke(value);
     }
+
+    public Action OnItemPicked;
+
+    public void HandleItemPicked(){
+        OnItemPicked?.Invoke();
+    }
+
+    public Action OnItemPut;
+
+    public void HandleItemPut(){
+        OnItemPut?.Invoke();
+    }
 }

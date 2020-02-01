@@ -1,20 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Rocket : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Inject] private EventManager _eventManager;
+    
      public void PutItem(TypeItem typeItem)
     {
         if (typeItem == TypeItem.wood)
@@ -23,5 +15,7 @@ public class Rocket : MonoBehaviour
             Debug.Log("Предмет камень принят");
         if (typeItem == TypeItem.sand)
             Debug.Log("Предмет песок принят");
+        
+        _eventManager.HandleItemPut();
     }
 }

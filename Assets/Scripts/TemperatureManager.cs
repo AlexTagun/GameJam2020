@@ -10,8 +10,10 @@ public class TemperatureManager
     private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;
 
     private readonly float START_GLOBAL_TEMPERATURE_VALUE = -1f;
+    public readonly float DEFEAT_GLOBAL_TEMPERATURE_VALUE = -120f;
 
     private float _currentGlobalTemperature;
+    public float CurrentGlobalTemperature => _currentGlobalTemperature;
 
     private float _currentPlayerTemperature;
 
@@ -23,12 +25,12 @@ public class TemperatureManager
         SetGlobalTemperature(START_GLOBAL_TEMPERATURE_VALUE);
     }
 
-    private void SetGlobalTemperature(float value){
+    public void SetGlobalTemperature(float value){
         _currentGlobalTemperature = value;
         _eventManager.HandleGlobalTemperatureChanged(_currentGlobalTemperature);
     }
     
-    private void SetPlayerTemperature(float value){
+    public void SetPlayerTemperature(float value){
         _currentPlayerTemperature = value;
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
     }
