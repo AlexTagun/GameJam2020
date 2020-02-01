@@ -19,6 +19,10 @@ public class TemperatureManager
 //        _currentGlobalTemperature += value;
 //    }
 
+    public void Init(){
+        FillPlayerTemperature();
+    }
+
     public void RemovePlayerTemperature(float value){
         _currentPlayerTemperature -= value;
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
@@ -26,7 +30,7 @@ public class TemperatureManager
 
     private void FillPlayerTemperature(){
         _currentPlayerTemperature = MAX_PLAYER_TEMPERATURE;
-        _eventManager.OnPlayerTemperatureChanged(_currentPlayerTemperature);
+        _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
     }
 
     public void GoToTemperatureFiller(){

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         _eventManager.OnStartGame += StartGame;
         _eventManager.OnMainMenu += ToMainMenu;
+        
+        _temperatureManager.Init();
     }
 
     private void StartGame() {
