@@ -23,12 +23,12 @@ public class MusicManager : MonoBehaviour
     {
         
     }
-    public void PlayMusicWin()
+    void PlayMusicWin()
     {
         audioSource.clip = musicWin;
         audioSource.Play();
     }
-    public void PlayMusicLose()
+    void PlayMusicLose()
     {
         audioSource.clip = musicLose;
         audioSource.Play();

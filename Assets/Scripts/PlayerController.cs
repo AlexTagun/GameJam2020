@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class PlayerController : MonoBehaviour {
+    [Inject] private EventManager _eventManager;
+
     [SerializeField] private float speedX;
     [SerializeField] private float speedY;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpTime;
     [SerializeField] private Transform _visual;
-    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
+    [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
+    [SerializeField] private Animator curAnimator;
 
     [SerializeField] private Transform PointForDialogPopup;
     public Transform GetPointForDialogPopup => PointForDialogPopup;
@@ -31,6 +36,9 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         _startVisualY = _visual.localPosition.y;
         rb = GetComponent<Rigidbody2D>();
+        curAnimator.runtimeAnimatorController = playerWithoutBagAnimator;
+        _eventManager.OnItemPicked += ChangeAnimator;
+        _eventManager.OnItemPut += ChangeAnimator;
     }
 
 
@@ -45,16 +53,16 @@ public class PlayerController : MonoBehaviour {
         LastKeyMoveUp();
         if (!KeyMovePressed()) {
             //Debug.Log(LastKeyMoveUp());
-            playerAnimator.SetInteger("Idle", LastKeyMoveUp());
+            curAnimator.SetInteger("Idle", LastKeyMoveUp());
         } else {
-            playerAnimator.SetInteger("Idle", 0);
+            curAnimator.SetInteger("Idle", 0);
         }
 
 
         Vector2 vectorAxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        playerAnimator.SetFloat("Horizontal", vectorAxis.x);
-        playerAnimator.SetFloat("Vertical", vectorAxis.y);
-        playerAnimator.SetFloat("Magnitude", vectorAxis.magnitude);
+        curAnimator.SetFloat("Horizontal", vectorAxis.x);
+        curAnimator.SetFloat("Vertical", vectorAxis.y);
+        curAnimator.SetFloat("Magnitude", vectorAxis.magnitude);
 
         if (Input.GetKeyDown(KeyCode.Space)) Jump();
     }
@@ -111,5 +119,17 @@ public class PlayerController : MonoBehaviour {
         }
 
         return lastMoveKeyUp;
+    }
+
+    void ChangeAnimator()
+    {
+        if(curAnimator.runtimeAnimatorController == playerWithoutBagAnimator)
+        {
+            curAnimator.runtimeAnimatorController = playerWithBagAnimator;
+        }
+        else if (curAnimator.runtimeAnimatorController == playerWithBagAnimator)
+        {
+            curAnimator.runtimeAnimatorController = playerWithoutBagAnimator;
+        }
     }
 }
