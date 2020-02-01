@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 993949108}
-  timeShake: 5
+  timeShake: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
