@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _jumpTime;
     [SerializeField] private float FREEZING_PLAYER_TIME = 1f;
     [SerializeField] private Transform _jumpObject;
+    [SerializeField] private SpriteRenderer IceCubeObject;
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
     [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
     [SerializeField] private Animator curAnimator;
@@ -135,13 +136,17 @@ public class PlayerController : MonoBehaviour {
         StartCoroutine(StartFreezing());
     }
     
-    private IEnumerator StartFreezing(){
+    private IEnumerator StartFreezing() {
+        IceCubeObject.gameObject.SetActive(true);
+        IceCubeObject.DOFade(1, 0.2f);
         // var player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         SetSpeedModifier(0f);
         
         
-        yield return new WaitForSeconds(FREEZING_PLAYER_TIME);
-        
+        yield return new WaitForSeconds(FREEZING_PLAYER_TIME - 0.2f);
+        IceCubeObject.DOFade(0, 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        IceCubeObject.gameObject.SetActive(false);
         SetSpeedModifier(1f);
         // _isReloaded = true;
     }
