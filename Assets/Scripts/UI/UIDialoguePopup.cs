@@ -29,6 +29,8 @@ public class UIDialoguePopup : MonoBehaviour
         Text.text = text;
         
         Background.gameObject.SetActive(true);
+        
+        Invoke("Hide",1f);
     }
 
     private void Hide(){
