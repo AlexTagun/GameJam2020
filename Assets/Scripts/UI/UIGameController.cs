@@ -14,6 +14,10 @@ public class UIGameController : MonoBehaviour {
         _eventManager.OnGlobalTemperatureChanged += OnGlobalTemperatureChanged;
 
         _eventManager.OnPlayerTemperatureChanged += OnPlayerTemperatureChanged;
+
+        _eventManager.OnStartGame += Show;
+        _eventManager.OnWin += Hide;
+        _eventManager.OnDefeat += Hide;
     }
 
     private void OnGlobalTemperatureChanged(float value) {
@@ -25,10 +29,15 @@ public class UIGameController : MonoBehaviour {
     }
 
     public void Show() {
-        
+        TemperatureProgressBar.Show();
+        UiTemperaturePanel.Show();
     }
 
     public void Hide() {
+        TemperatureProgressBar.Hide();
+        UiTemperaturePanel.Hide();
+        
+        
         Hide(null);
     }
 
