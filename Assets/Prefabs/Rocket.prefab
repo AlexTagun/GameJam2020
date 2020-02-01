@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8396983589408477311}
   - component: {fileID: 8396983589408477280}
   - component: {fileID: 8354607038054442587}
-  - component: {fileID: 8396983589408477309}
+  - component: {fileID: 3966359121250122640}
+  - component: {fileID: 2433274135084184231}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Rocket
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8396983589408477281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.58, y: 2.1, z: 0}
-  m_LocalScale: {x: 11, y: 11, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e7d0273cdb02b9d4eb6528f1c64a3a6d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   snowSlideOnWoodRoad: {fileID: 0}
   snowSlideOnRockRoad: {fileID: 0}
   snowSlideOnSandRoad: {fileID: 0}
+  itemToWin: 3
 --- !u!114 &8354607038054442587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +116,29 @@ MonoBehaviour:
   HintType: 0
   _markerPrefab: {fileID: 2954763814771076763, guid: a0b5b2f1bb4a05c4993f2780a3cea87b,
     type: 3}
---- !u!61 &8396983589408477309
-BoxCollider2D:
+--- !u!50 &3966359121250122640
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396983589408477281}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2433274135084184231
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,16 +150,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.2, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
-  m_EdgeRadius: 0
+  m_Radius: 1.8
