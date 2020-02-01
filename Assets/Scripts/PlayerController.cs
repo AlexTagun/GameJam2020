@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float speedY;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpTime;
+    [SerializeField] private float FREEZING_PLAYER_TIME = 1f;
     [SerializeField] private Transform _visual;
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
     [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
@@ -121,15 +122,27 @@ public class PlayerController : MonoBehaviour {
         return lastMoveKeyUp;
     }
 
-    void ChangeAnimator()
-    {
-        if(curAnimator.runtimeAnimatorController == playerWithoutBagAnimator)
-        {
+    void ChangeAnimator() {
+        if (curAnimator.runtimeAnimatorController == playerWithoutBagAnimator) {
             curAnimator.runtimeAnimatorController = playerWithBagAnimator;
-        }
-        else if (curAnimator.runtimeAnimatorController == playerWithBagAnimator)
-        {
+        } else if (curAnimator.runtimeAnimatorController == playerWithBagAnimator) {
             curAnimator.runtimeAnimatorController = playerWithoutBagAnimator;
         }
+    }
+
+    public void StartFreezCoroutine() {
+        StartCoroutine(StartFreezing());
+    }
+    
+    private IEnumerator StartFreezing(){
+        // var player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        SetSpeedModifier(0f);
+        
+        
+        yield return new WaitForSeconds(FREEZING_PLAYER_TIME);
+        
+        SetSpeedModifier(1f);
+        Debug.Log("asdfsadfsdf");
+        // _isReloaded = true;
     }
 }
