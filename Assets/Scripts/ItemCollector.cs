@@ -20,8 +20,11 @@ public class ItemCollector : MonoBehaviour
         }
         
         if (other.gameObject.tag == "Rocket") {
-            Debug.Log("Нажмите E, чтобы сдать");
-            isAbleToPutItem = true;
+            if (isAbleToPutItem)
+            {
+                rocket.PutItem(typePickedItem);
+                isAbleToPutItem = false;
+            }
         }
     }
 
@@ -31,10 +34,10 @@ public class ItemCollector : MonoBehaviour
             isAbleToPickItem = false;
         }
 
-        if (other.gameObject.tag == "Rocket") {
+        /* if (other.gameObject.tag == "Rocket") {
             Debug.Log("Подойдите к объекту");
             isAbleToPutItem = false;
-        }
+        } */
     }
 
     private void Update(){
@@ -43,12 +46,13 @@ public class ItemCollector : MonoBehaviour
                 typePickedItem = itemNearPlayer.typeItem;
                 itemNearPlayer.PickItem(itemNearPlayer);
                 isAbleToPickItem = false;
+                isAbleToPutItem = true;
             }
 
-            if (isAbleToPutItem) {
+           /* if (isAbleToPutItem) {
                 rocket.PutItem(typePickedItem);
                 isAbleToPutItem = false;
-            }
+            } */
         }
     }
 }
