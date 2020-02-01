@@ -31,18 +31,16 @@ public class PlayerController : MonoBehaviour {
 
 
     void Update() {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * (speedX * _speedModifier), Input.GetAxisRaw("Vertical") * (speedY * _speedModifier));
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal") * (speedX * _speedModifier),
+            Input.GetAxisRaw("Vertical") * (speedY * _speedModifier));
         moveVelocity = moveInput;
-        if(!_isGrounded) return;
+        if (!_isGrounded) return;
 
         LastKeyMoveUp();
-        if (!KeyMovePressed())
-        {
+        if (!KeyMovePressed()) {
             //Debug.Log(LastKeyMoveUp());
             playerAnimator.SetInteger("Idle", LastKeyMoveUp());
-        }
-        else
-        {
+        } else {
             playerAnimator.SetInteger("Idle", 0);
         }
 
@@ -51,8 +49,8 @@ public class PlayerController : MonoBehaviour {
         playerAnimator.SetFloat("Horizontal", vectorAxis.x);
         playerAnimator.SetFloat("Vertical", vectorAxis.y);
         playerAnimator.SetFloat("Magnitude", vectorAxis.magnitude);
-        
-        if(Input.GetKeyDown(KeyCode.Space)) Jump();
+
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
     }
 
     private void FixedUpdate() {
@@ -69,40 +67,39 @@ public class PlayerController : MonoBehaviour {
         });
     }
 
-    public void SetSpeedModifier(float value){
+    public void SetSpeedModifier(float value) {
         _speedModifier = value;
     }
 
-    public void ClearSpeedModifier(){
+    public void ClearSpeedModifier() {
         _speedModifier = 1f;
     }
 
-    bool KeyMovePressed ()
-    {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-        {
+    bool KeyMovePressed() {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
             return true;
         }
+
         return false;
     }
-    int LastKeyMoveUp ()
-    {
-        if (Input.GetKeyUp(KeyCode.W))
-        {
+
+    int LastKeyMoveUp() {
+        if (Input.GetKeyUp(KeyCode.W)) {
             lastMoveKeyUp = 1;
         }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
+
+        if (Input.GetKeyUp(KeyCode.S)) {
             lastMoveKeyUp = 2;
         }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
+
+        if (Input.GetKeyUp(KeyCode.D)) {
             lastMoveKeyUp = 3;
         }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
+
+        if (Input.GetKeyUp(KeyCode.A)) {
             lastMoveKeyUp = 4;
         }
+
         return lastMoveKeyUp;
     }
 }
