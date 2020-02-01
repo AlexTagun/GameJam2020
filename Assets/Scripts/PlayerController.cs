@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _jumpTime;
     [SerializeField] private Rocket rocket;
     [SerializeField] private Transform _visual;
+    [SerializeField] private Animator playerAnimator;
 
     private bool isAbleToPickItem = false;
     private Item itemNearPlayer;
@@ -34,7 +35,12 @@ public class PlayerController : MonoBehaviour {
         moveVelocity = moveInput;
         Debug.Log(_isGrounded);
         if(!_isGrounded) return;
-        
+
+        Vector2 vectorAxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        playerAnimator.SetFloat("Horizontal", vectorAxis.x);
+        playerAnimator.SetFloat("Vertical", vectorAxis.y);
+        playerAnimator.SetFloat("Magnitude", vectorAxis.magnitude);
+
         if (Input.GetKeyDown(KeyCode.E)) {
             if (isAbleToPickItem) {
                 typePickedItem = itemNearPlayer.typeItem;
