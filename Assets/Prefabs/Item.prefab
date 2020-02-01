@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8712171834766928382}
   - component: {fileID: 8712171834766928383}
   - component: {fileID: 8712171834766928376}
+  - component: {fileID: 6482945827202487166}
   m_Layer: 0
   m_Name: Item
   m_TagString: Item
@@ -121,3 +122,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeItem: 1
+--- !u!114 &6482945827202487166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712171834766928380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9a71b40985b5843b56ff1b534c9ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HintType: 2
+  _markerPrefab: {fileID: 2954763814771076763, guid: b5c295bb8fb734e46a3be3df691317d2,
+    type: 3}

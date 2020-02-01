@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8396983589408477310}
   - component: {fileID: 8396983589408477311}
   - component: {fileID: 8396983589408477280}
+  - component: {fileID: 8354607038054442587}
   - component: {fileID: 8396983589408477309}
   m_Layer: 0
   m_Name: Rocket
@@ -94,6 +95,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441a556f580644741904d5fba7fa6b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  snowSlideOnWoodRoad: {fileID: 0}
+  snowSlideOnRockRoad: {fileID: 0}
+  snowSlideOnSandRoad: {fileID: 0}
+--- !u!114 &8354607038054442587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396983589408477281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9a71b40985b5843b56ff1b534c9ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HintType: 0
+  _markerPrefab: {fileID: 2954763814771076763, guid: a0b5b2f1bb4a05c4993f2780a3cea87b,
+    type: 3}
 --- !u!61 &8396983589408477309
 BoxCollider2D:
   m_ObjectHideFlags: 0

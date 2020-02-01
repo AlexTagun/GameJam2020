@@ -14,7 +14,7 @@ public enum HintType
 
 public class HintController : MonoBehaviour
 {
-    [SerializeField] private WorldMarkersManagerUIObject worldMarkersManager;
+    private WorldMarkersManagerUIObject worldMarkersManager;
     
     [SerializeField] private List<HintType> Hints;
 
@@ -25,6 +25,8 @@ public class HintController : MonoBehaviour
     private void Awake(){
         _eventManager.OnItemPicked += OnItemPicked;
         _eventManager.OnItemPut += OnItemPut;
+
+        worldMarkersManager = GameObject.FindWithTag("WorldMarkersManager").GetComponent<WorldMarkersManagerUIObject>();
     }
 
     private void Start(){

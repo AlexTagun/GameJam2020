@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Rocket
+  - WorldMarkersManager
   layers:
   - Default
   - TransparentFX
