@@ -8,9 +8,9 @@ public class Rocket : MonoBehaviour
     [Inject] private EventManager _eventManager;
 
     [SerializeField] private PlayerCamera cam;
-    public GameObject snowSlideOnWoodRoad;
-    public GameObject snowSlideOnRockRoad;
-    public GameObject snowSlideOnSandRoad;
+
+    private TypeItem _nextItem = TypeItem.wood;
+    public TypeItem NextItem =>  _nextItem;
 
     public int itemToWin = 3;
     private int curItem = 0;
@@ -20,21 +20,21 @@ public class Rocket : MonoBehaviour
         {
             Debug.Log("Предмет дерево принят");
             curItem++;
-            snowSlideOnWoodRoad.SetActive(true);
+            _nextItem = TypeItem.rock;
             cam.AnimShake();
         }
         if (typeItem == TypeItem.rock)
         {
             Debug.Log("Предмет камень принят");
             curItem++;
-            snowSlideOnRockRoad.SetActive(true);
+            _nextItem = TypeItem.sand;
             cam.AnimShake();
         }
         if (typeItem == TypeItem.sand)
         {
             Debug.Log("Предмет песок принят");
             curItem++;
-            snowSlideOnSandRoad.SetActive(true);
+            _nextItem = TypeItem.none;
             cam.AnimShake();
         }
         
