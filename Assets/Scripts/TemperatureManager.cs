@@ -36,6 +36,10 @@ public class TemperatureManager
     public void RemovePlayerTemperature(){
         _currentPlayerTemperature -= REMOVING_PLAYER_TEMPERATURE_VALUE;
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
+
+        if (_currentPlayerTemperature <= 0f){
+            _eventManager.HandleLoseGame();
+        }
     }
 
     public void AddPlayerTemperature(){

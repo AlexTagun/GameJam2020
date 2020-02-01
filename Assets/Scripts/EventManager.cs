@@ -17,6 +17,13 @@ public class EventManager {
         OnMainMenu?.Invoke();
     }
 
+    public Action OnLoseGame;
+
+    public void HandleLoseGame(){
+        Debug.Log("Lose Game");
+        OnLoseGame?.Invoke();
+    }
+
     public Action<float> OnGlobalTemperatureChanged;
 
     public void HandleGlobalTemperatureChanged(float value){
