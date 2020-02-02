@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
     [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
     [SerializeField] private Animator curAnimator;
+    [SerializeField] private AudioSource freezeSound;
 
     [SerializeField] private Transform PointForDialogPopup;
     public Transform GetPointForDialogPopup => PointForDialogPopup;
@@ -149,6 +150,7 @@ public class PlayerController : MonoBehaviour {
     
     private IEnumerator StartFreezing() {
         IceCubeObject.gameObject.SetActive(true);
+        freezeSound.Play();
         IceCubeObject.DOFade(1, 0.2f);
         // var player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         SetSpeedModifier(0f);
