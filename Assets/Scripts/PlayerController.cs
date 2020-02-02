@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour {
 
 
     void Update() {
+        if (!_eventManager.IsTutorialCompleted){
+            return;
+        }
+        
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         moveInput.x *= speedX * _speedModifier;
         moveInput.y *= speedY * _speedModifier;
