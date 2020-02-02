@@ -4,16 +4,25 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using Zenject;
 
 public class UIMainMenu : MonoBehaviour {
     [SerializeField] private Button _startButton;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] VideoPlayer _videoPlayer;
 
     [Inject] private EventManager _eventManager;
 
     private void Awake() {
         _startButton.onClick.AddListener(OnStart);
+        _videoPlayer.Play();
+        StartCoroutine(DelayerStart());
+    }
+
+    private IEnumerator DelayerStart() {
+        yield return new WaitForSeconds(42f);
+        OnStart();
     }
 
     private void OnStart() {

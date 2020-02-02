@@ -36,6 +36,8 @@ public class TemperatureProgressBar : MonoBehaviour {
     }
 
     public void SetValue(float currentValue, float maxValue) {
+        _postProcessVolume.profile.TryGetSettings(out _bloomLayer);
+        _postProcessVolume.profile.TryGetSettings(out _vignetteLayer);
         var fillAmount = currentValue / maxValue;
 //
 //        FillImage.fillAmount = fillAmount;
