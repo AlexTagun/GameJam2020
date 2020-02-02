@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using Zenject;
 
@@ -15,6 +18,8 @@ public class UIGameController : MonoBehaviour {
     [SerializeField] private VideoClip _defeatClip;
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private GameObject[] _objectsToHide;
+    
+    [SerializeField] private Image _back;
 
     private void Awake() {
         _eventManager.OnGlobalTemperatureChanged += OnGlobalTemperatureChanged;
@@ -78,5 +83,19 @@ public class UIGameController : MonoBehaviour {
         _videoPlayer.gameObject.SetActive(true);
         _videoPlayer.clip = _defeatClip;
         _videoPlayer.Play();
+    }
+    
+    IEnumerator FadeOutBack() {
+        yield return new WaitForSeconds(0.5f);
+        _back.DOFade(0, 0.5f);
+        yield return new WaitForSeconds(41.0f);
+        _back.DOFade(1, 0);
+        yield return new WaitForSeconds(1.5f);
+        foreach (var obj in _objectsToHide) {
+            obj.SetActive(true);
+        }
+        TemperatureProgressBar.Show();
+        UiTemperaturePanel.Show();
+        _back.DOFade(0, 1f);
     }
 }
