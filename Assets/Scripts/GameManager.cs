@@ -49,7 +49,9 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            _temperatureManager.CurTimeToChangingGlobalTemperature += Time.deltaTime;
+            if (_eventManager.IsTutorialCompleted){
+                _temperatureManager.CurTimeToChangingGlobalTemperature += Time.deltaTime;
+            }
         }
             
     }
