@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
         _eventManager.OnMainMenu += ToMainMenu;
         if(!DebugMode) _eventManager.OnDefeat += ToMainMenu;
         
+    }
+
+    private void Start(){
         _temperatureManager.Init();
     }
 
