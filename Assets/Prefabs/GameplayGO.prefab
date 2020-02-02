@@ -699,7 +699,8 @@ PrefabInstance:
     - target: {fileID: 968893041556423398, guid: c96a300a54b607147bd0f0b81125bc83,
         type: 3}
       propertyPath: Text
-      value: I am freezing someone please cuddle me or set me on fire either is fine.
+      value: I am freezing! Someone please cuddle me or set me on fire. Either is
+        fine.
       objectReference: {fileID: 0}
     - target: {fileID: 1876128562936496032, guid: c96a300a54b607147bd0f0b81125bc83,
         type: 3}
