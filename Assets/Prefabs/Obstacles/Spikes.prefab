@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1163664650027756342}
   - component: {fileID: 1163664650027756343}
   - component: {fileID: 1163664650027756344}
-  - component: {fileID: 647212979633591798}
+  - component: {fileID: 343913051949400374}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -98,11 +98,11 @@ MonoBehaviour:
   inactiveSprite: {fileID: 21300000, guid: 91ab22387b4cd714faee3b95715fe295, type: 3}
   timeChangeOnActive: 1
   timeChangeOnInactive: 2
-  colliderSpikes: {fileID: 647212979633591798}
+  colliderSpikes: {fileID: 343913051949400374}
   isActive: 0
   sr: {fileID: 1163664650027756343}
---- !u!61 &647212979633591798
-BoxCollider2D:
+--- !u!60 &343913051949400374
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,12 +118,18 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.44, y: 2.14}
+    oldSize: {x: 2.22, y: 1.07}
     newSize: {x: 0.31, y: 0.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4, y: 2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.44097853, y: 0.41742873}
+      - {x: -0.5222697, y: 0.48270082}
+      - {x: -0.9623599, y: 0.2538302}
+      - {x: -1.1975734, y: -0.1697483}
+      - {x: -0.445, y: -0.525}
+      - {x: 0.53392255, y: -0.41250992}
+      - {x: 1.0778781, y: -0.033931732}
