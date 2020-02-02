@@ -46,7 +46,7 @@ public class UIDialoguePopup : MonoBehaviour
         Background.gameObject.SetActive(true);
 
         if (_eventManager.IsTutorialCompleted){
-            Invoke("Hide",2.5f);
+            Invoke("Hide",3.5f);
         }
     }
 
