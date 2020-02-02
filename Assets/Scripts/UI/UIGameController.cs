@@ -32,6 +32,14 @@ public class UIGameController : MonoBehaviour {
 
         _videoPlayer.loopPointReached += RestartGame;
     }
+    
+    private void Start() {
+        foreach (var obj in _objectsToHide) {
+            obj.SetActive(false);
+        }
+
+        StartCoroutine(FadeOutBack());
+    }
 
     private void OnGlobalTemperatureChanged(float value) {
         UiTemperaturePanel.UpdateView(value);
