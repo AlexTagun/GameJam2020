@@ -57,21 +57,18 @@ public class TemperatureProgressBar : MonoBehaviour {
         _vignetteLayer.intensity.value = Mathf.Lerp(_minVignetteIntensity, _maxVignetteIntensity, 1 - fillAmount);
 
         if ((1 - fillAmount) < 0.33f) {
-            Debug.Log("Play1");
             _snowfall1.Play();
             _snowfall2.Stop();
             _snowfall3.Stop();
         }
 
         if ((1 - fillAmount) >= 0.33f && (1 - fillAmount) <= 0.66f) {
-            Debug.Log("Play2");
             _snowfall1.Play();
             _snowfall2.Play();
             _snowfall3.Stop();
         }
         
         if ((1 - fillAmount) >= 0.66f) {
-            Debug.Log("Play3");
             _snowfall1.Play();
             _snowfall2.Play();
             _snowfall3.Play();
