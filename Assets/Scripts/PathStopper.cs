@@ -38,7 +38,7 @@ public class PathStopper : MonoBehaviour
         }
         else{
             Hide(ExitParts);
-            Show(EnterParts);
+            Hide(EnterParts);
         }
     }
 
