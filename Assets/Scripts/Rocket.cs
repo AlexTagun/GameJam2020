@@ -36,7 +36,7 @@ public class Rocket : MonoBehaviour
             curItem++;
             // spriteRenderer.sprite = secondRepair;
             _nextItem = TypeItem.none;
-            StartCoroutine(StartRepairAnim(secondRepair));
+            StartCoroutine(StartRepairAnim(thirdRepair));
             
         }
         if (typeItem == TypeItem.sand)
@@ -45,7 +45,7 @@ public class Rocket : MonoBehaviour
             curItem++;
             // spriteRenderer.sprite = thirdRepair;
             _nextItem = TypeItem.rock;
-            StartCoroutine(StartRepairAnim(thirdRepair));
+            StartCoroutine(StartRepairAnim(secondRepair));
             // cam.AnimShake();
         }
         

@@ -32,7 +32,7 @@ public class UIDialoguePopup : MonoBehaviour
         
         Background.gameObject.SetActive(true);
         
-        Invoke("Hide",1f);
+        Invoke("Hide",2.5f);
     }
 
     private void Hide(){
