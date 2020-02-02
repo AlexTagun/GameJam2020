@@ -263,6 +263,7 @@ MonoBehaviour:
   FREEZING_PLAYER_TIME: 1
   SlipValue: 0.01
   _jumpObject: {fileID: 825948024528756524}
+  _shadowObject: {fileID: 345492662836329674}
   IceCubeObject: {fileID: 5480199440932035286}
   playerWithoutBagAnimator: {fileID: 9100000, guid: 2570f0e5ce3816e42bcb3099a8d771bc,
     type: 2}

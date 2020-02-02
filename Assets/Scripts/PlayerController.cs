@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float FREEZING_PLAYER_TIME = 1f;
     [SerializeField] private float SlipValue = 0.01f;
     [SerializeField] private Transform _jumpObject;
+    [SerializeField] private Transform _shadowObject;
     [SerializeField] private SpriteRenderer IceCubeObject;
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
     [SerializeField] private RuntimeAnimatorController playerWithBagAnimator;
@@ -86,6 +87,11 @@ public class PlayerController : MonoBehaviour {
             _jumpObject.DOLocalMoveY(_startVisualY, _jumpTime / 2).OnComplete(() => {
                 _isGrounded = true;
             });
+        });
+
+        var startShadowScaleX = _shadowObject.localScale.x;
+        _shadowObject.DOScaleX(startShadowScaleX * 0.7f, _jumpTime / 2).OnComplete(() => {
+            _shadowObject.DOScaleX(startShadowScaleX, _jumpTime / 2);
         });
     }
 
