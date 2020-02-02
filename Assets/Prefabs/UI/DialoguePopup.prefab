@@ -126,11 +126,11 @@ MonoBehaviour:
   Text: {fileID: 8482233117154310293}
   Background: {fileID: 8764467435463659303}
   TutorialStrings:
-  - Hello
-  - I am Putin
-  - HaHAHA
-  - I am kidding you
-  - I am Dino
+  - What is this place? <b>[press Space to cotninue]
+  - It's a bit cold around here.
+  - And I bet it's going to get colder by nightfall.
+  - I must hurry now and fix my ship.
+  - <b>[Find all 3 parts of the rocket until you freeze to death]</b>
 --- !u!1 &7153980070697500303
 GameObject:
   m_ObjectHideFlags: 0
