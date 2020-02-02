@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class PlayerCamera : MonoBehaviour {
     [SerializeField] private Transform _player;
     [SerializeField] private PlayerController pc;
+    [SerializeField] private Animator playerAnimator;
     [SerializeField] private float timeShake;
     [SerializeField] private float strenghtShake;
 
@@ -20,9 +21,10 @@ public class PlayerCamera : MonoBehaviour {
     {
         Debug.Log("Камера трясется...");
         pc.SetSpeedModifier(0.0f);
+        playerAnimator.enabled = false;
         Camera.main.DOShakePosition(timeShake, strenghtShake).OnComplete(() => {
-            Debug.Log("Не двигайся!");
-             pc.ClearSpeedModifier();
+            pc.ClearSpeedModifier();
+            playerAnimator.enabled = true;
         });
 
 

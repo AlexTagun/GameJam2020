@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 993949108}
   pc: {fileID: 1301424147}
+  playerAnimator: {fileID: 1589707397}
   timeShake: 5
   strenghtShake: 1
 --- !u!20 &519420031
@@ -808,6 +809,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b52500c63746834dbf5f80abcdfcab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1589707397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 18907198851021555, guid: b74e995335dd0c44f8890719cce6f145,
+    type: 3}
+  m_PrefabInstance: {fileID: 8819050330356833029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1593086951
 GameObject:
   m_ObjectHideFlags: 0
