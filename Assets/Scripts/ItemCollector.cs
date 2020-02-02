@@ -11,38 +11,37 @@ public class ItemCollector : MonoBehaviour
     
     private bool isAbleToPickItem = false;
     private Item itemNearPlayer;
-    private TypeItem typePickedItem;
+    private TypeItem typePickedItem = TypeItem.none;
 
     private bool isAbleToPutItem = false;
     
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.tag == "Item") {
-            Debug.Log("нажмите Е, чтобы подобрать");
+            //Debug.Log("нажмите Е, чтобы подобрать");
             isAbleToPickItem = true;
             itemNearPlayer = other.gameObject.GetComponent<Item>();
             _eventManager.HandleTextItemCollectorHelpShown();
         }
         
         if (other.gameObject.tag == "Rocket") {
-            if (isAbleToPutItem)
-            {
-                rocket.PutItem(typePickedItem);
-                isAbleToPutItem = false;
-            }
+            _eventManager.HandleTextItemCollectorHelpShown();
+            isAbleToPutItem = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other){
         if (other.gameObject.tag == "Item") {
-            Debug.Log("Подойдите к объекту");
+            //Debug.Log("Подойдите к объекту");
             isAbleToPickItem = false;
+            itemNearPlayer = null;
             _eventManager.HandleTextItemCollectorHelpHidden();
         }
 
-        /* if (other.gameObject.tag == "Rocket") {
-            Debug.Log("Подойдите к объекту");
+         if (other.gameObject.tag == "Rocket") {
+            //Debug.Log("Подойдите к объекту");
+            _eventManager.HandleTextItemCollectorHelpHidden();
             isAbleToPutItem = false;
-        } */
+         } 
     }
 
     private void Update(){
@@ -51,14 +50,16 @@ public class ItemCollector : MonoBehaviour
                 typePickedItem = itemNearPlayer.typeItem;
                 itemNearPlayer.PickItem(itemNearPlayer);
                 isAbleToPickItem = false;
-                isAbleToPutItem = true;
                 _eventManager.HandleTextItemCollectorHelpHidden();
             }
-
-           /* if (isAbleToPutItem) {
-                rocket.PutItem(typePickedItem);
-                isAbleToPutItem = false;
-            } */
+            if (isAbleToPutItem) {
+                if (typePickedItem != TypeItem.none)
+                {
+                    rocket.PutItem(typePickedItem);
+                    typePickedItem = TypeItem.none;
+                    isAbleToPutItem = false;
+                }
+            } 
         }
     }
 }
