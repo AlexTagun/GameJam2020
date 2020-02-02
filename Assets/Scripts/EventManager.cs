@@ -11,6 +11,8 @@ public class EventManager {
     }
 
     public GameState gameState = GameState.Play;
+    
+    public bool IsTutorialCompleted = false;
 
     public Action OnStartGame = new Action(() => { });
 

@@ -125,6 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 8482233117154310293}
   Background: {fileID: 8764467435463659303}
+  TutorialStrings:
+  - Hello
+  - I am Putin
+  - HaHAHA
+  - I am kidding you
+  - I am Dino
 --- !u!1 &7153980070697500303
 GameObject:
   m_ObjectHideFlags: 0
