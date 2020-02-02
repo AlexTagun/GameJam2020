@@ -15,7 +15,6 @@ public class TemperatureProgressBar : MonoBehaviour {
     private int _currentIndex = 0;
 
     public void SetValue(float currentValue, float maxValue) {
-        Debug.Log("CurrentValue = " + currentValue);
         var fillAmount = currentValue / maxValue;
 //
 //        FillImage.fillAmount = fillAmount;
@@ -25,9 +24,12 @@ public class TemperatureProgressBar : MonoBehaviour {
         if (_currentIndex != newIndex){
 //            Indicators[_currentIndex].DOFade(0f, 1f);
 //            Indicators[newIndex].DOFade(1f, 1f);
-
             _currentIndex = newIndex;
-            Background.sprite = Indicators[_currentIndex];
+
+            Background.DOFade(0.7f, 0.3f).OnComplete(() => {
+                Background.sprite = Indicators[_currentIndex];
+                Background.DOFade(1f, 0.3f);
+            });
         }
     }
 
