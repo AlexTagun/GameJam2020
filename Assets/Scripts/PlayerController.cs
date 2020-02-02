@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Jump() {
-        Debug.Log("Jump");
         _isGrounded = false;
         _jumpObject.DOLocalMoveY(_startVisualY + _jumpHeight, _jumpTime / 2).OnComplete(() => {
             _jumpObject.DOLocalMoveY(_startVisualY, _jumpTime / 2).OnComplete(() => {
