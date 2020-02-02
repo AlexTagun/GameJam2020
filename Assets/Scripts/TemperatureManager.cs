@@ -11,7 +11,7 @@ public class TemperatureManager
     private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;
 
     private readonly float START_GLOBAL_TEMPERATURE_VALUE = 10f;
-    private readonly float REMOVING_GLOBAL_TEMPERATURE_VALUE = -1f;
+    private readonly float REMOVING_GLOBAL_TEMPERATURE_VALUE = 1f;
     public readonly float DEFEAT_GLOBAL_TEMPERATURE_VALUE = -120f;
 
     [SerializeField] private float intervalChangingGlobalTemperature = 7f;
