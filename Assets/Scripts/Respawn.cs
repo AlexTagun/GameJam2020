@@ -25,6 +25,8 @@ public class Respawn : MonoBehaviour
         
         _temperatureManager.SetPlayerTemperature(_temperatureManager.MAX_PLAYER_TEMPERATURE);
         _temperatureManager.SetGlobalTemperature(_respawnData.GlobalTemperature);
+
+        _eventManager.gameState = EventManager.GameState.Play;
     }
 
     private void UpdateRespawnData(){
