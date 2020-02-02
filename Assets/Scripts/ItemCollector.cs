@@ -24,8 +24,11 @@ public class ItemCollector : MonoBehaviour
         }
         
         if (other.gameObject.tag == "Rocket") {
-            _eventManager.HandleTextItemCollectorHelpShown();
-            isAbleToPutItem = true;
+            if (typePickedItem != TypeItem.none)
+            {
+                _eventManager.HandleTextItemCollectorHelpShown();
+                isAbleToPutItem = true;
+            }
         }
     }
 
