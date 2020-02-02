@@ -37,16 +37,6 @@ public class Rocket : MonoBehaviour
             _LeftEngine.Stop();
             _LeftSparks.Stop();
         }
-        if (typeItem == TypeItem.rock)
-        {
-            Debug.Log("Предмет камень принят");
-            curItem++;
-            // spriteRenderer.sprite = secondRepair;
-            _nextItem = TypeItem.none;
-            StartCoroutine(StartRepairAnim(thirdRepair));
-            _RightEngine.Stop();
-            _RightSparks.Stop();
-        }
         if (typeItem == TypeItem.sand)
         {
             Debug.Log("Предмет песок принят");
@@ -54,8 +44,19 @@ public class Rocket : MonoBehaviour
             // spriteRenderer.sprite = thirdRepair;
             _nextItem = TypeItem.rock;
             StartCoroutine(StartRepairAnim(secondRepair));
+            _RightEngine.Stop();
+            _RightSparks.Stop();
             // cam.AnimShake();
         }
+        if (typeItem == TypeItem.rock)
+        {
+            Debug.Log("Предмет камень принят");
+            curItem++;
+            // spriteRenderer.sprite = secondRepair;
+            _nextItem = TypeItem.none;
+            StartCoroutine(StartRepairAnim(thirdRepair));
+        }
+
         
         _eventManager.HandleItemPut();
 
