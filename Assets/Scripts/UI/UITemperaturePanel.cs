@@ -9,7 +9,12 @@ public class UITemperaturePanel : MonoBehaviour {
 
 
     public void UpdateView(float value) {
-        Text.text = value.ToString();
+        if (0 <= value){
+            Text.text = "+" + value.ToString() + " C";
+        }
+        else{
+            Text.text = value.ToString() + " C";
+        }
     }
 
     public void Show(){
