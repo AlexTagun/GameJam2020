@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,19 +10,57 @@ public class TemperatureProgressBar : MonoBehaviour {
     [SerializeField] private Image FillImage;
     [SerializeField] private Image Background;
 
-    public void SetValue(float currentValue, float maxValue) {
-        var fillAmount = currentValue / maxValue;
+    [SerializeField] private List<Sprite> Indicators;
 
-        FillImage.fillAmount = fillAmount;
+    private int _currentIndex = 0;
+
+    public void SetValue(float currentValue, float maxValue) {
+        Debug.Log("CurrentValue = " + currentValue);
+        var fillAmount = currentValue / maxValue;
+//
+//        FillImage.fillAmount = fillAmount;
+
+        var newIndex = CalculateIndicatorIndex(fillAmount);
+
+        if (_currentIndex != newIndex){
+//            Indicators[_currentIndex].DOFade(0f, 1f);
+//            Indicators[newIndex].DOFade(1f, 1f);
+
+            _currentIndex = newIndex;
+            Background.sprite = Indicators[_currentIndex];
+        }
     }
 
     public void Show(){
-        FillImage.DOFade(1f, 1f);
+//        Indicators[_currentIndex].DOFade(1f, 1f);
+//        FillImage.DOFade(1f, 1f);
         Background.DOFade(1f, 1f);
     }
 
     public void Hide(){
-        FillImage.DOFade(0f, 1f);
+//        Indicators[_currentIndex].DOFade(0f, 1f);
+//        FillImage.DOFade(0f, 1f);
         Background.DOFade(0f, 1f);
+    }
+
+    private int CalculateIndicatorIndex(float currentValue){
+        var indicatorIndex = 0;
+
+        if (currentValue <= 0.05f){
+            indicatorIndex = 5;
+        }else if (currentValue <= 0.2f){
+            indicatorIndex = 4;
+        }else if (currentValue <= 0.4f){
+            indicatorIndex = 3;
+        }else if(currentValue <= 0.6f){
+            indicatorIndex = 2;
+        }else if (currentValue <= 0.8f){
+            indicatorIndex = 1;
+        }
+        else{
+            indicatorIndex = 0;
+        }
+
+        return indicatorIndex;
     }
 }
