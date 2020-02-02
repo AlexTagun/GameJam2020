@@ -14,6 +14,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] Sprite thirdRepair;
     [SerializeField] ParticleSystem _particleRepair;
     [SerializeField] AudioSource repairSound;
+    [SerializeField] AudioSource collapseSound;
 
     [SerializeField] private ParticleSystem _LeftEngine;
     [SerializeField] private ParticleSystem _RightEngine;
@@ -75,7 +76,10 @@ public class Rocket : MonoBehaviour
          spriteRenderer.sprite = sprite;
          yield return new WaitForSeconds(1f);
          _particleRepair.Stop();
+         yield return new WaitForSeconds(2f);
          cam.AnimShake();
+        collapseSound.Play();
+
      }
 
     /* void ShowLandSlide()
