@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345492662836329675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -1.05, z: 0}
-  m_LocalScale: {x: 20, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 20, y: 2.6, z: 1}
   m_Children: []
   m_Father: {fileID: 345492664321538471}
   m_RootOrder: 2
@@ -48,7 +48,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.13096298, g: 0.13359603, b: 0.254717, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   _jumpHeight: 3
   _jumpTime: 0.7
   FREEZING_PLAYER_TIME: 1
+  SlipValue: 0.01
   _jumpObject: {fileID: 825948024528756524}
   IceCubeObject: {fileID: 5480199440932035286}
   playerWithoutBagAnimator: {fileID: 9100000, guid: 2570f0e5ce3816e42bcb3099a8d771bc,
