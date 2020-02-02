@@ -258,7 +258,7 @@ MonoBehaviour:
   speedX: 10
   speedY: 5
   _jumpHeight: 1
-  _jumpTime: 1
+  _jumpTime: 0.7
   FREEZING_PLAYER_TIME: 1
   _jumpObject: {fileID: 825948024528756524}
   IceCubeObject: {fileID: 5480199440932035286}
