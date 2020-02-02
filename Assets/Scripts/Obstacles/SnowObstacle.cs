@@ -6,10 +6,12 @@ public class SnowObstacle : MonoBehaviour
 {
     [SerializeField] private readonly float SNOW_SPEED_MODIFIER = 0.1f;
     
-    private void OnTriggerEnter2D(Collider2D other){
+    private void OnTriggerStay2D(Collider2D other){
         if (other.gameObject.tag == "Player"){
             var playerController = other.gameObject.GetComponent<PlayerController>();
-            playerController.SetSpeedModifier(SNOW_SPEED_MODIFIER);
+            if (playerController._isGrounded){
+                playerController.SetSpeedModifier(SNOW_SPEED_MODIFIER);
+            }
         }
     }
     
