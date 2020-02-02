@@ -163,7 +163,7 @@ MonoBehaviour:
   _player: {fileID: 993949108}
   pc: {fileID: 1301424147}
   playerAnimator: {fileID: 1589707397}
-  timeShake: 5
+  timeShake: 1
   strenghtShake: 1
 --- !u!20 &519420031
 Camera:
@@ -3079,6 +3079,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 1724793485591175869, guid: b74e995335dd0c44f8890719cce6f145,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724793485591175869, guid: b74e995335dd0c44f8890719cce6f145,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1726891657135273755, guid: b74e995335dd0c44f8890719cce6f145,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
