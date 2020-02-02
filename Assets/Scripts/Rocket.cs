@@ -26,7 +26,7 @@ public class Rocket : MonoBehaviour
             Debug.Log("Предмет дерево принят");
             curItem++;
             // spriteRenderer.sprite = firstRepair;
-            _nextItem = TypeItem.rock;
+            _nextItem = TypeItem.sand;
             StartCoroutine(StartRepairAnim(firstRepair));
             // cam.AnimShake();
         }
@@ -35,7 +35,7 @@ public class Rocket : MonoBehaviour
             Debug.Log("Предмет камень принят");
             curItem++;
             // spriteRenderer.sprite = secondRepair;
-            _nextItem = TypeItem.sand;
+            _nextItem = TypeItem.none;
             StartCoroutine(StartRepairAnim(secondRepair));
             
         }
@@ -44,7 +44,7 @@ public class Rocket : MonoBehaviour
             Debug.Log("Предмет песок принят");
             curItem++;
             // spriteRenderer.sprite = thirdRepair;
-            _nextItem = TypeItem.none;
+            _nextItem = TypeItem.rock;
             StartCoroutine(StartRepairAnim(thirdRepair));
             // cam.AnimShake();
         }

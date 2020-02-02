@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629b93fcc2574a958fb502668169e65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldMarkersManager: {fileID: 0}
-  Hints: 010000000000000002000000000000000300000000000000
+  Hints: 010000000000000003000000000000000200000000000000
