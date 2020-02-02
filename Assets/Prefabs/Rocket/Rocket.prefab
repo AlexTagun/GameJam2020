@@ -19237,6 +19237,8 @@ MonoBehaviour:
   thirdRepair: {fileID: 21300000, guid: 362d3b110d174984e94d970b1075e595, type: 3}
   _particleRepair: {fileID: 7862181790740113921}
   repairSound: {fileID: 1988933224236063841}
+  collapseSound: {fileID: 3684465490962558583, guid: 63f70d1aa4b9be043a12063d6ca67b5f,
+    type: 3}
   _LeftEngine: {fileID: 1598113427676627392}
   _RightEngine: {fileID: 3233754594470530434}
   _LeftSparks: {fileID: 8553383788176326783}
