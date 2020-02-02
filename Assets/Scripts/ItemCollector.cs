@@ -11,7 +11,7 @@ public class ItemCollector : MonoBehaviour
     
     private bool isAbleToPickItem = false;
     private Item itemNearPlayer;
-    private TypeItem typePickedItem = TypeItem.none;
+    [SerializeField] private TypeItem typePickedItem = TypeItem.none;
 
     private bool isAbleToPutItem = false;
     
@@ -24,8 +24,11 @@ public class ItemCollector : MonoBehaviour
         }
         
         if (other.gameObject.tag == "Rocket") {
-            _eventManager.HandleTextItemCollectorHelpShown();
-            isAbleToPutItem = true;
+            if (typePickedItem != TypeItem.none)
+            {
+                _eventManager.HandleTextItemCollectorHelpShown();
+                isAbleToPutItem = true;
+            }
         }
     }
 
@@ -38,7 +41,6 @@ public class ItemCollector : MonoBehaviour
         }
 
          if (other.gameObject.tag == "Rocket") {
-            //Debug.Log("Подойдите к объекту");
             _eventManager.HandleTextItemCollectorHelpHidden();
             isAbleToPutItem = false;
          } 
@@ -57,6 +59,7 @@ public class ItemCollector : MonoBehaviour
                 {
                     rocket.PutItem(typePickedItem);
                     typePickedItem = TypeItem.none;
+                    _eventManager.HandleTextItemCollectorHelpHidden();
                     isAbleToPutItem = false;
                 }
             } 

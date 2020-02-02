@@ -13,6 +13,7 @@ public class UIGameController : MonoBehaviour {
     [SerializeField] private VideoClip _winClip;
     [SerializeField] private VideoClip _defeatClip;
     [SerializeField] private VideoPlayer _videoPlayer;
+    [SerializeField] private GameObject[] _objectsToHide;
 
     private void Awake() {
         _eventManager.OnGlobalTemperatureChanged += OnGlobalTemperatureChanged;
@@ -51,12 +52,21 @@ public class UIGameController : MonoBehaviour {
     }
 
     private void OnWin() {
+        Hide();
+        foreach (var obj in _objectsToHide) {
+            obj.SetActive(false);
+        }
         _videoPlayer.gameObject.SetActive(true);
         _videoPlayer.clip = _winClip;
         _videoPlayer.Play();
     }
     
     private void OnDefeat() {
+        Hide();
+        foreach (var obj in _objectsToHide) {
+            obj.SetActive(false);
+        }
+        // Debug.Log("defeat");
         _videoPlayer.gameObject.SetActive(true);
         _videoPlayer.clip = _defeatClip;
         _videoPlayer.Play();
