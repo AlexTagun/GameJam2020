@@ -260,8 +260,8 @@ MonoBehaviour:
   speedY: 3
   _jumpHeight: 3
   _jumpTime: 0.7
-  FREEZING_PLAYER_TIME: 1
-  SlipValue: 0.01
+  FREEZING_PLAYER_TIME: 2
+  SlipValue: 0.3
   _jumpObject: {fileID: 825948024528756524}
   _shadowObject: {fileID: 345492662836329674}
   IceCubeObject: {fileID: 5480199440932035286}
