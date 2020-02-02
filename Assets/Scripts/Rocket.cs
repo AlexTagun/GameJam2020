@@ -12,7 +12,12 @@ public class Rocket : MonoBehaviour
     [SerializeField] Sprite firstRepair;
     [SerializeField] Sprite secondRepair;
     [SerializeField] Sprite thirdRepair;
-    [SerializeField] ParticleSystem _particleSystem;
+    [SerializeField] ParticleSystem _particleRepair;
+
+    [SerializeField] private ParticleSystem _LeftEngine;
+    [SerializeField] private ParticleSystem _RightEngine;
+    [SerializeField] private ParticleSystem _LeftSparks;
+    [SerializeField] private ParticleSystem _RightSparks;
 
     private TypeItem _nextItem = TypeItem.wood;
     public TypeItem NextItem =>  _nextItem;
@@ -29,6 +34,8 @@ public class Rocket : MonoBehaviour
             _nextItem = TypeItem.sand;
             StartCoroutine(StartRepairAnim(firstRepair));
             // cam.AnimShake();
+            _LeftEngine.Stop();
+            _LeftSparks.Stop();
         }
         if (typeItem == TypeItem.rock)
         {
@@ -37,7 +44,8 @@ public class Rocket : MonoBehaviour
             // spriteRenderer.sprite = secondRepair;
             _nextItem = TypeItem.none;
             StartCoroutine(StartRepairAnim(thirdRepair));
-            
+            _RightEngine.Stop();
+            _RightSparks.Stop();
         }
         if (typeItem == TypeItem.sand)
         {
@@ -59,11 +67,11 @@ public class Rocket : MonoBehaviour
      }
 
      private IEnumerator StartRepairAnim(Sprite sprite) {
-         _particleSystem.Play();
+         _particleRepair.Play();
          yield return new WaitForSeconds(1f);
          spriteRenderer.sprite = sprite;
          yield return new WaitForSeconds(1f);
-         _particleSystem.Stop();
+         _particleRepair.Stop();
          cam.AnimShake();
      }
 
