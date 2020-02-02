@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8396983589408477280}
   - component: {fileID: 8354607038054442587}
   - component: {fileID: 3966359121250122640}
-  - component: {fileID: 2433274135084184231}
+  - component: {fileID: 389673182988989860}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Rocket
@@ -97,9 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  snowSlideOnWoodRoad: {fileID: 0}
-  snowSlideOnRockRoad: {fileID: 0}
-  snowSlideOnSandRoad: {fileID: 0}
   itemToWin: 3
 --- !u!114 &8354607038054442587
 MonoBehaviour:
@@ -137,8 +134,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2433274135084184231
-CircleCollider2D:
+--- !u!60 &389673182988989860
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,6 +147,26 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.8
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.82, y: 3.3}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.92, y: -1.41}
+      - {x: 2.69, y: -1.71}
+      - {x: 0.68, y: -1.45}
+      - {x: -0.01, y: -1.12}
+      - {x: -1.04, y: -1.4}
+      - {x: -1.95, y: -1.02}
+      - {x: -2.27, y: -0.33}
+      - {x: -3.36, y: 0.11}
+      - {x: -3.31, y: 1.07}
+      - {x: 1.59, y: -0.06}
+      - {x: 1.56, y: -0.86}
