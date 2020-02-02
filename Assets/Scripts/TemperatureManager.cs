@@ -14,7 +14,7 @@ public class TemperatureManager
     private readonly float REMOVING_GLOBAL_TEMPERATURE_VALUE = 1f;
     public readonly float DEFEAT_GLOBAL_TEMPERATURE_VALUE = -120f;
 
-    [SerializeField] private float intervalChangingGlobalTemperature = 5f;
+    [SerializeField] private float intervalChangingGlobalTemperature = 4f;
     public float IntervalChangingGlobalTemperature => intervalChangingGlobalTemperature;
 
     private float curTimeToChangingGlobalTemperature;
