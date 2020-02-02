@@ -12,17 +12,19 @@ public class UIDialoguePopup : MonoBehaviour
 
     private PlayerController playerController;
 
+    private Vector3 _screenCoords;
+
     private void Awake(){
         _eventManager.OnTextPopupShown += Show;
 
         var player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         playerController = player;
 
+        _screenCoords = Camera.main.WorldToScreenPoint(playerController.GetPointForDialogPopup.position);
     }
 
     private void Update(){
-        var screenCoords = Camera.main.WorldToScreenPoint(playerController.GetPointForDialogPopup.position);
-        transform.position = screenCoords;
+        transform.position = _screenCoords;
     }
 
     private void Show(string text){
