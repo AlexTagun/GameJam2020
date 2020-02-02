@@ -9,7 +9,7 @@ public class Spikes : MonoBehaviour
     [SerializeField] private float timeChangeOnActive;
     [SerializeField] private float timeChangeOnInactive;
 
-    [SerializeField] private BoxCollider2D colliderSpikes;
+    [SerializeField] private Collider2D colliderSpikes;
 
     public bool isActive = false;
 

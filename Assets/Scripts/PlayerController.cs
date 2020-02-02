@@ -97,7 +97,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     bool KeyMovePressed() {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) ||
+            Input.GetKey(KeyCode.W) ||  Input.GetKey(KeyCode.S) ||  Input.GetKey(KeyCode.D) ||  Input.GetKey(KeyCode.A)) {
             return true;
         }
 
@@ -105,19 +106,19 @@ public class PlayerController : MonoBehaviour {
     }
 
     int LastKeyMoveUp() {
-        if (Input.GetKeyUp(KeyCode.W)) {
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
             lastMoveKeyUp = 1;
         }
 
-        if (Input.GetKeyUp(KeyCode.S)) {
+        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
             lastMoveKeyUp = 2;
         }
 
-        if (Input.GetKeyUp(KeyCode.D)) {
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
             lastMoveKeyUp = 3;
         }
 
-        if (Input.GetKeyUp(KeyCode.A)) {
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
             lastMoveKeyUp = 4;
         }
 
