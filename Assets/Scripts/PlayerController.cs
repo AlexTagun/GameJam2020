@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpTime;
     [SerializeField] private float FREEZING_PLAYER_TIME = 1f;
+    [SerializeField] private float SlipValue = 0.01f;
     [SerializeField] private Transform _jumpObject;
     [SerializeField] private SpriteRenderer IceCubeObject;
     [SerializeField] private RuntimeAnimatorController playerWithoutBagAnimator;
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (_isOnIce) {
-            rb.AddForce(moveVelocity * 0.01f, ForceMode2D.Impulse);
+            rb.AddForce(moveVelocity * SlipValue, ForceMode2D.Impulse);
         } else {
             rb.velocity = moveVelocity;
         }
