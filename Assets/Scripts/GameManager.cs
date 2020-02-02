@@ -38,5 +38,16 @@ public class GameManager : MonoBehaviour {
         else{
             _temperatureManager.AddPlayerTemperature();
         }
+
+        if(_temperatureManager.CurTimeToChangingGlobalTemperature >= _temperatureManager.IntervalChangingGlobalTemperature)
+        {
+            _temperatureManager.RemoveGlobalTemperature();
+            _temperatureManager.CurTimeToChangingGlobalTemperature = 0f;
+        }
+        else
+        {
+            _temperatureManager.CurTimeToChangingGlobalTemperature += Time.deltaTime;
+        }
+            
     }
 }

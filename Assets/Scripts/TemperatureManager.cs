@@ -10,8 +10,20 @@ public class TemperatureManager
     private readonly float REMOVING_PLAYER_TEMPERATURE_VALUE = 0.1f;
     private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;
 
-    private readonly float START_GLOBAL_TEMPERATURE_VALUE = -1f;
+    private readonly float START_GLOBAL_TEMPERATURE_VALUE = 10f;
+    private readonly float REMOVING_GLOBAL_TEMPERATURE_VALUE = -1f;
     public readonly float DEFEAT_GLOBAL_TEMPERATURE_VALUE = -120f;
+
+    [SerializeField] private float intervalChangingGlobalTemperature = 7f;
+    public float IntervalChangingGlobalTemperature => intervalChangingGlobalTemperature;
+
+    private float curTimeToChangingGlobalTemperature;
+    //public float CurTimeToChangingGlobalTemperature => curTimeToChangingGlobalTemperature;
+    public float CurTimeToChangingGlobalTemperature 
+    {
+        get { return curTimeToChangingGlobalTemperature; }
+        set { curTimeToChangingGlobalTemperature = value; }
+    }
 
     private float _currentGlobalTemperature;
     public float CurrentGlobalTemperature => _currentGlobalTemperature;
@@ -54,6 +66,12 @@ public class TemperatureManager
         _currentPlayerTemperature += ADDING_PLAYER_TEMPERATURE_VALUE;
         
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
+    }
+
+    public void RemoveGlobalTemperature()
+    {
+        _currentGlobalTemperature -= REMOVING_GLOBAL_TEMPERATURE_VALUE;
+        _eventManager.HandleGlobalTemperatureChanged(_currentGlobalTemperature);
     }
 
     public void GoToTemperatureFiller(){
