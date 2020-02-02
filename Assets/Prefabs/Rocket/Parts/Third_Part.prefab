@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc7284bf166ba54aba080ee41c8a37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeItem: 2
+  typeItem: 1
 --- !u!114 &6482945827202487166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9a71b40985b5843b56ff1b534c9ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HintType: 3
+  HintType: 2
   _markerPrefab: {fileID: 2954763814771076763, guid: b5c295bb8fb734e46a3be3df691317d2,
     type: 3}
 --- !u!61 &4675798677933784707
