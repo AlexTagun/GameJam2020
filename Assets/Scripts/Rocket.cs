@@ -13,6 +13,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] Sprite secondRepair;
     [SerializeField] Sprite thirdRepair;
     [SerializeField] ParticleSystem _particleRepair;
+    [SerializeField] AudioSource repairSound;
 
     [SerializeField] private ParticleSystem _LeftEngine;
     [SerializeField] private ParticleSystem _RightEngine;
@@ -69,6 +70,7 @@ public class Rocket : MonoBehaviour
 
      private IEnumerator StartRepairAnim(Sprite sprite) {
          _particleRepair.Play();
+        repairSound.Play();
          yield return new WaitForSeconds(1f);
          spriteRenderer.sprite = sprite;
          yield return new WaitForSeconds(1f);
