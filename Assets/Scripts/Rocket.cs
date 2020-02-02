@@ -12,6 +12,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] Sprite firstRepair;
     [SerializeField] Sprite secondRepair;
     [SerializeField] Sprite thirdRepair;
+    [SerializeField] ParticleSystem _particleSystem;
 
     private TypeItem _nextItem = TypeItem.wood;
     public TypeItem NextItem =>  _nextItem;
@@ -24,25 +25,28 @@ public class Rocket : MonoBehaviour
         {
             Debug.Log("Предмет дерево принят");
             curItem++;
-            spriteRenderer.sprite = firstRepair;
+            // spriteRenderer.sprite = firstRepair;
             _nextItem = TypeItem.rock;
-            cam.AnimShake();
+            StartCoroutine(StartRepairAnim(firstRepair));
+            // cam.AnimShake();
         }
         if (typeItem == TypeItem.rock)
         {
             Debug.Log("Предмет камень принят");
             curItem++;
-            spriteRenderer.sprite = secondRepair;
+            // spriteRenderer.sprite = secondRepair;
             _nextItem = TypeItem.sand;
-            cam.AnimShake();
+            StartCoroutine(StartRepairAnim(secondRepair));
+            
         }
         if (typeItem == TypeItem.sand)
         {
             Debug.Log("Предмет песок принят");
             curItem++;
-            spriteRenderer.sprite = thirdRepair;
+            // spriteRenderer.sprite = thirdRepair;
             _nextItem = TypeItem.none;
-            cam.AnimShake();
+            StartCoroutine(StartRepairAnim(thirdRepair));
+            // cam.AnimShake();
         }
         
         _eventManager.HandleItemPut();
@@ -52,6 +56,15 @@ public class Rocket : MonoBehaviour
             _eventManager.HandleWin();
         }
 
+     }
+
+     private IEnumerator StartRepairAnim(Sprite sprite) {
+         _particleSystem.Play();
+         yield return new WaitForSeconds(1f);
+         spriteRenderer.sprite = sprite;
+         yield return new WaitForSeconds(1f);
+         _particleSystem.Stop();
+         cam.AnimShake();
      }
 
     /* void ShowLandSlide()
