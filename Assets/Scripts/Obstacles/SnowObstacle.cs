@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnowObstacle : MonoBehaviour
 {
-    [SerializeField] private readonly float SNOW_SPEED_MODIFIER = 0.1f;
+    [SerializeField] private readonly float SNOW_SPEED_MODIFIER = 0.3f;
     
     private void OnTriggerStay2D(Collider2D other){
         if (other.gameObject.tag == "Player"){
