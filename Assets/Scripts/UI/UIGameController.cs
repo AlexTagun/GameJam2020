@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using Zenject;
 
@@ -23,10 +24,17 @@ public class UIGameController : MonoBehaviour {
         _eventManager.OnStartGame += Show;
         _eventManager.OnWin += OnWin;
         _eventManager.OnDefeat += OnDefeat;
+
+        _videoPlayer.loopPointReached += RestartGame;
     }
 
     private void OnGlobalTemperatureChanged(float value) {
         UiTemperaturePanel.UpdateView(value);
+    }
+
+    private void RestartGame(VideoPlayer videoPlayer){
+        var currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     private void OnPlayerTemperatureChanged(float value) {
