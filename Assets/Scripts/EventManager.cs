@@ -11,7 +11,7 @@ public class EventManager {
     }
 
     public GameState gameState = GameState.Play;
-    
+
     public Action OnStartGame = new Action(() => { });
 
     public void HandleStartGame() {
@@ -24,15 +24,15 @@ public class EventManager {
         OnMainMenu?.Invoke();
     }
 
-    public Action OnDefeat;
     public Action OnWin;
 
-    public void HandleWin()
-    {
+    public void HandleWin() {
         gameState = GameState.Win;
         Debug.Log("Win Game");
         OnWin?.Invoke();
     }
+
+    public Action OnDefeat;
 
     public void HandleDefeat() {
         //Debug.Log("Lose Game");
@@ -54,31 +54,31 @@ public class EventManager {
 
     public Action OnItemPicked;
 
-    public void HandleItemPicked(){
+    public void HandleItemPicked() {
         OnItemPicked?.Invoke();
     }
 
     public Action OnItemPut;
 
-    public void HandleItemPut(){
+    public void HandleItemPut() {
         OnItemPut?.Invoke();
     }
 
     public Action<string> OnTextPopupShown;
 
-    public void HandleTextPopupShown(string text){
+    public void HandleTextPopupShown(string text) {
         OnTextPopupShown?.Invoke(text);
     }
 
     public Action OnTextItemCollectorHelpShown;
 
-    public void HandleTextItemCollectorHelpShown(){
+    public void HandleTextItemCollectorHelpShown() {
         OnTextItemCollectorHelpShown.Invoke();
     }
-    
+
     public Action OnTextItemCollectorHelpHidden;
 
-    public void HandleTextItemCollectorHelpHidden(){
+    public void HandleTextItemCollectorHelpHidden() {
         OnTextItemCollectorHelpHidden.Invoke();
     }
 }

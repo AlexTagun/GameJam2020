@@ -1,3 +1,4 @@
+using UnityEngine;
 using Zenject;
 
 public class TemperatureManager
@@ -39,7 +40,7 @@ public class TemperatureManager
         _currentPlayerTemperature -= REMOVING_PLAYER_TEMPERATURE_VALUE;
         _eventManager.HandlePlayerTemperatureChanged(_currentPlayerTemperature);
 
-        if (_currentPlayerTemperature <= 0f){
+        if (_currentPlayerTemperature <= 0f && _eventManager.gameState != EventManager.GameState.Defeat){
             _eventManager.HandleDefeat();
         }
     }

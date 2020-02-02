@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Video;
 using Zenject;
 
 public class UIGameController : MonoBehaviour {
@@ -9,6 +10,9 @@ public class UIGameController : MonoBehaviour {
 
     [SerializeField] private TemperatureProgressBar TemperatureProgressBar;
     [SerializeField] private UITemperaturePanel UiTemperaturePanel;
+    [SerializeField] private VideoClip _winClip;
+    [SerializeField] private VideoClip _defeatClip;
+    [SerializeField] private VideoPlayer _videoPlayer;
 
     private void Awake() {
         _eventManager.OnGlobalTemperatureChanged += OnGlobalTemperatureChanged;
@@ -16,8 +20,8 @@ public class UIGameController : MonoBehaviour {
         _eventManager.OnPlayerTemperatureChanged += OnPlayerTemperatureChanged;
 
         _eventManager.OnStartGame += Show;
-        _eventManager.OnWin += Hide;
-        _eventManager.OnDefeat += Hide;
+        _eventManager.OnWin += OnWin;
+        _eventManager.OnDefeat += OnDefeat;
     }
 
     private void OnGlobalTemperatureChanged(float value) {
@@ -44,5 +48,17 @@ public class UIGameController : MonoBehaviour {
     public void Hide(Action callback) {
         //TODO: wait for second
         callback?.Invoke();
+    }
+
+    private void OnWin() {
+        _videoPlayer.gameObject.SetActive(true);
+        _videoPlayer.clip = _winClip;
+        _videoPlayer.Play();
+    }
+    
+    private void OnDefeat() {
+        _videoPlayer.gameObject.SetActive(true);
+        _videoPlayer.clip = _defeatClip;
+        _videoPlayer.Play();
     }
 }
