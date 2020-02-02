@@ -26,9 +26,9 @@ public class TemperatureProgressBar : MonoBehaviour {
 //            Indicators[newIndex].DOFade(1f, 1f);
             _currentIndex = newIndex;
 
-            Background.DOFade(0.7f, 0.3f).OnComplete(() => {
+            Background.DOFade(0.6f, 0.4f).OnComplete(() => {
                 Background.sprite = Indicators[_currentIndex];
-                Background.DOFade(1f, 0.3f);
+                Background.DOFade(1f, 0.4f);
             });
         }
     }
