@@ -445,6 +445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocket: {fileID: 0}
+  itemNearPlayer: {fileID: 0}
+  typePickedItem: 3
 --- !u!1 &3066864849776624754
 GameObject:
   m_ObjectHideFlags: 0
