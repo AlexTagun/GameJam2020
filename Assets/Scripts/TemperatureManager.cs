@@ -7,7 +7,7 @@ public class TemperatureManager
 
     public readonly float MAX_PLAYER_TEMPERATURE = 100f;
 
-    private readonly float REMOVING_PLAYER_TEMPERATURE_VALUE = 0.1f;
+    private readonly float REMOVING_PLAYER_TEMPERATURE_VALUE = 0.05f;
     private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;
 
     private readonly float START_GLOBAL_TEMPERATURE_VALUE = 10f;
