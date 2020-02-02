@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour {
         IceCubeObject.DOFade(1, 0.2f);
         // var player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         SetSpeedModifier(0f);
+        curAnimator.enabled = false;
         
         
         yield return new WaitForSeconds(FREEZING_PLAYER_TIME - 0.2f);
@@ -159,6 +160,7 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         IceCubeObject.gameObject.SetActive(false);
         SetSpeedModifier(1f);
+        curAnimator.enabled = true;
         // _isReloaded = true;
     }
 }
