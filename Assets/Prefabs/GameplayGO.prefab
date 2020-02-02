@@ -490,6 +490,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819050329319344942}
     m_Modifications:
+    - target: {fileID: 6482945827202487166, guid: 23fefca4f9a2ddb40b394a82ba27e2bb,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928377, guid: 23fefca4f9a2ddb40b394a82ba27e2bb,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -780,6 +786,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819050329319344942}
     m_Modifications:
+    - target: {fileID: 6482945827202487166, guid: 5ace960d28dd28942815c8dcadbbd6a8,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928377, guid: 5ace960d28dd28942815c8dcadbbd6a8,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -938,6 +950,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819050329319344942}
     m_Modifications:
+    - target: {fileID: 6482945827202487166, guid: b32b3f56a074fb84cad7433630bb95b4,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928377, guid: b32b3f56a074fb84cad7433630bb95b4,
         type: 3}
       propertyPath: m_LocalPosition.z
