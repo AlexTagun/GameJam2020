@@ -5,7 +5,7 @@ public class TemperatureManager
 {
     [Inject] private EventManager _eventManager;
 
-    public readonly float MAX_PLAYER_TEMPERATURE = 100f;
+    public readonly float MAX_PLAYER_TEMPERATURE = 1000f;
 
     private readonly float REMOVING_PLAYER_TEMPERATURE_VALUE = 0.1f;
     private readonly float ADDING_PLAYER_TEMPERATURE_VALUE = 1f;

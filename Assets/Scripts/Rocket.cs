@@ -8,6 +8,10 @@ public class Rocket : MonoBehaviour
     [Inject] private EventManager _eventManager;
 
     [SerializeField] private PlayerCamera cam;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite firstRepair;
+    [SerializeField] Sprite secondRepair;
+    [SerializeField] Sprite thirdRepair;
 
     private TypeItem _nextItem = TypeItem.wood;
     public TypeItem NextItem =>  _nextItem;
@@ -20,6 +24,7 @@ public class Rocket : MonoBehaviour
         {
             Debug.Log("Предмет дерево принят");
             curItem++;
+            spriteRenderer.sprite = firstRepair;
             _nextItem = TypeItem.rock;
             cam.AnimShake();
         }
@@ -27,6 +32,7 @@ public class Rocket : MonoBehaviour
         {
             Debug.Log("Предмет камень принят");
             curItem++;
+            spriteRenderer.sprite = secondRepair;
             _nextItem = TypeItem.sand;
             cam.AnimShake();
         }
@@ -34,6 +40,7 @@ public class Rocket : MonoBehaviour
         {
             Debug.Log("Предмет песок принят");
             curItem++;
+            spriteRenderer.sprite = thirdRepair;
             _nextItem = TypeItem.none;
             cam.AnimShake();
         }
