@@ -24,7 +24,7 @@ public class Respawn : MonoBehaviour
         playerGO.transform.position = _respawnData.PlayerPosition;
         
         _temperatureManager.SetPlayerTemperature(_temperatureManager.MAX_PLAYER_TEMPERATURE);
-        _temperatureManager.SetGlobalTemperature(_respawnData.GlobalTemperature);
+       // _temperatureManager.SetGlobalTemperature(_respawnData.GlobalTemperature);
 
         _eventManager.gameState = EventManager.GameState.Play;
     }
