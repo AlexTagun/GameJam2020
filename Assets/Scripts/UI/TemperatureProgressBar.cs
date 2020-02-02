@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,8 +12,28 @@ public class TemperatureProgressBar : MonoBehaviour {
     [SerializeField] private Image Background;
 
     [SerializeField] private List<Sprite> Indicators;
+    
+    [SerializeField] private ParticleSystem _snowfall1;
+    [SerializeField] private ParticleSystem _snowfall2;
+    [SerializeField] private ParticleSystem _snowfall3;
+    [SerializeField] private PostProcessVolume _postProcessVolume;
+    private Bloom _bloomLayer = null;
+    private Vignette _vignetteLayer = null;
+    
+    private float _maxBloomIntensity = 18.45f;
+    private float _minBloomIntensity = 0f;
+    private float _maxVignetteIntensity = 1f;
+    private float _minVignetteIntensity = 0.23f;
 
     private int _currentIndex = 0;
+    
+    private void Awake() {
+        _postProcessVolume.profile.TryGetSettings(out _bloomLayer);
+        _postProcessVolume.profile.TryGetSettings(out _vignetteLayer);
+        _snowfall1.Stop();
+        _snowfall2.Stop();
+        _snowfall3.Stop();
+    }
 
     public void SetValue(float currentValue, float maxValue) {
         var fillAmount = currentValue / maxValue;
@@ -30,6 +51,30 @@ public class TemperatureProgressBar : MonoBehaviour {
                 Background.sprite = Indicators[_currentIndex];
                 Background.DOFade(1f, 0.4f);
             });
+        }
+        
+        _bloomLayer.intensity.value = Mathf.Lerp(_minBloomIntensity, _maxBloomIntensity, 1 - fillAmount);
+        _vignetteLayer.intensity.value = Mathf.Lerp(_minVignetteIntensity, _maxVignetteIntensity, 1 - fillAmount);
+
+        if ((1 - fillAmount) < 0.33f) {
+            Debug.Log("Play1");
+            _snowfall1.Play();
+            _snowfall2.Stop();
+            _snowfall3.Stop();
+        }
+
+        if ((1 - fillAmount) >= 0.33f && (1 - fillAmount) <= 0.66f) {
+            Debug.Log("Play2");
+            _snowfall1.Play();
+            _snowfall2.Play();
+            _snowfall3.Stop();
+        }
+        
+        if ((1 - fillAmount) >= 0.66f) {
+            Debug.Log("Play3");
+            _snowfall1.Play();
+            _snowfall2.Play();
+            _snowfall3.Play();
         }
     }
 
