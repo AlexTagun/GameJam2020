@@ -324,6 +324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPathStopper
       objectReference: {fileID: 0}
+    - target: {fileID: 3181520928355223114, guid: 3cc76fbb355093b40b8f911214b88541,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4702690635303488615, guid: 3cc76fbb355093b40b8f911214b88541,
         type: 3}
       propertyPath: EnterParts.Array.size
@@ -379,6 +384,11 @@ PrefabInstance:
       propertyPath: ExitParts.Array.data[3]
       value: 
       objectReference: {fileID: 4724906932142481290}
+    - target: {fileID: 4710253676231068428, guid: 3cc76fbb355093b40b8f911214b88541,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cc76fbb355093b40b8f911214b88541, type: 3}
 --- !u!4 &1959483899468751588 stripped
@@ -928,6 +938,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3181520928355223114, guid: 3cc76fbb355093b40b8f911214b88541,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4702690635303488615, guid: 3cc76fbb355093b40b8f911214b88541,
         type: 3}
       propertyPath: EnterParts.Array.size
@@ -988,6 +1003,11 @@ PrefabInstance:
       propertyPath: EnterParts.Array.data[4]
       value: 
       objectReference: {fileID: 3799313076473958751}
+    - target: {fileID: 4710253676231068428, guid: 3cc76fbb355093b40b8f911214b88541,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8380952361451180447, guid: 3cc76fbb355093b40b8f911214b88541,
         type: 3}
       propertyPath: m_Enabled
