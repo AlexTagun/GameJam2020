@@ -84,6 +84,12 @@ PrefabInstance:
       propertyPath: HintType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6482945827202487166, guid: b32b3f56a074fb84cad7433630bb95b4,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928376, guid: b32b3f56a074fb84cad7433630bb95b4,
         type: 3}
       propertyPath: typeItem
@@ -800,6 +806,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819050329319344942}
     m_Modifications:
+    - target: {fileID: 8354607038054442587, guid: 11a8cce0a751f42489052bb1e3b1ea73,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8396983589408477281, guid: 11a8cce0a751f42489052bb1e3b1ea73,
         type: 3}
       propertyPath: m_Name
@@ -887,6 +899,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819050329319344942}
     m_Modifications:
+    - target: {fileID: 6482945827202487166, guid: b32b3f56a074fb84cad7433630bb95b4,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928377, guid: b32b3f56a074fb84cad7433630bb95b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1042,6 +1060,12 @@ PrefabInstance:
       propertyPath: HintType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6482945827202487166, guid: b32b3f56a074fb84cad7433630bb95b4,
+        type: 3}
+      propertyPath: _markerPrefab
+      value: 
+      objectReference: {fileID: 2954763814771076763, guid: 34512b4013025d94cb44f0aba1af1e40,
+        type: 3}
     - target: {fileID: 8712171834766928376, guid: b32b3f56a074fb84cad7433630bb95b4,
         type: 3}
       propertyPath: typeItem
